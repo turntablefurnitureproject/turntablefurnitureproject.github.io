@@ -1,125 +1,385 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Turntable Furniture</title>
-  <meta name="description" content="Home Page For Turntable Furniture" />
-  <meta name="author" content="Turntable Furniture">
-  <meta name="keywords" content="furniture, recycling, Turntable, Exeter, Devon, England, UK, South West, Turntable Furniture, donate furniture, electrical appliance, electrical appliances, carpets, donate" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <!-- modernizr enables HTML5 elements and feature detects -->
-  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turntable Furniture | Furnishing Homes, Rebuilding Lives</title>
+  <style>
+    :root {
+      --primary: #0f5c4d;
+      --primary-dark: #0a4338;
+      --accent: #f2b441;
+      --bg: #f7f5ef;
+      --card: #ffffff;
+      --text: #1f2a2a;
+      --muted: #5d6b68;
+      --border: #dfe7e4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .topbar {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    header {
+      background: linear-gradient(rgba(15, 92, 77, 0.88), rgba(10, 67, 56, 0.88)),
+        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+      padding: 28px 20px 90px;
+    }
+    .nav {
+      max-width: 1150px;
+      margin: 0 auto 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .logo img { height: 60px; width: auto; }
+    .logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+    .hero {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 35px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin: 0 0 18px;
+    }
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 0 26px;
+      color: rgba(255,255,255,0.95);
+    }
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #1d1d1d;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.8);
+    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.96; }
+    .contact-strip {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.96);
+      color: var(--text);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+    }
+    .hero-card h3 {
+      margin-top: 0;
+      font-size: 26px;
+      color: var(--primary-dark);
+    }
+    .hero-card ul {
+      padding-left: 20px;
+      margin: 14px 0 0;
+    }
+    .hero-card li { margin-bottom: 10px; }
+    main {
+      max-width: 1150px;
+      margin: -45px auto 0;
+      padding: 0 20px 60px;
+    }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+    .card h2, .card h3 { margin-top: 0; color: var(--primary-dark); }
+    .section { margin-top: 28px; }
+    .section-title {
+      font-size: 38px;
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+    }
+    .section-intro {
+      max-width: 800px;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .impact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .impact-number {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .highlight {
+      background: var(--primary);
+      color: #fff;
+    }
+    .highlight h3, .highlight h2 { color: #fff; }
+    .cta-band {
+      background: linear-gradient(135deg, var(--accent), #ffd27a);
+      border-radius: 24px;
+      padding: 34px;
+      margin-top: 28px;
+    }
+    .cta-band h2 {
+      margin-top: 0;
+      font-size: 36px;
+      color: #2b2416;
+    }
+    footer {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 35px 20px;
+      margin-top: 40px;
+    }
+    .footer-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+    }
+    .small { color: rgba(255,255,255,0.8); font-size: 14px; }
+    @media (max-width: 900px) {
+      .hero, .quick-grid, .impact, .split, .footer-inner { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 40px; }
+      .section-title { font-size: 30px; }
+    }
+  </style>
 </head>
-
 <body>
-  <div id="main">
-    <header>
-      <div id="logo">
-		<div id="logo_image">
-		  <a title="Turntable Furniture" href="index.html"><img src="images/Logo.jpg" alt="Logo Image"></a>
-		</div>
-        <div id="logo_text">
-          <h1>Turntable Furniture</h1>
-          <h2>Helping local people furnish their homes </h2>
+  <div class="topbar">Free furniture collections across Exeter and surrounding areas • Call 01392 202032</div>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <img src="logo.jpg" alt="Turntable Furniture logo">
+        <div>Turntable <span>Furniture</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="donate.html">Donate Furniture</a>
+        <a href="need-furniture.html">Need Furniture?</a>
+        <a href="referral-partners.html">Referral Partners</a>
+        <a href="clearance-services.html">Clearance Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div>
+        <h1>Furnishing Homes.<br>Rebuilding Lives.</h1>
+        <p>We collect donated furniture and household items, then provide them at affordable cost to people facing hardship across Exeter and surrounding areas. Every item donated helps turn empty spaces into safe, comfortable homes.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="donate.html">Donate Furniture</a>
+          <a class="btn btn-secondary" href="need-furniture.html">Need Furniture?</a>
+        </div>
+        <div class="contact-strip">
+          <span>📞 01392 202032</span>
+          <span>📧 office@turntable.org.uk</span>
+          <span>📍 Swan Yard, Okehampton Street, Exeter EX4 1DS</span>
         </div>
       </div>
-      <nav>
-        <div id="menu_container">
-          <ul class="sf-menu" id="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a>
-			  <ul>
-				<li><a href="about_us.html">What is Turntable &amp; what does it do?</a></li>
-				<li><a href="start.html">How Turntable started</a></li>
-				<li><a href="trustees.html">Board of trustees</a></li>
-				<li><a href="#">Info. for the past financial year:</a>
-				  <ul>
-					<li><a href="report_chairman.html">Chairman's report</a></li>
-					<li><a href="report_manager.html">Manager's report</a></li>
-					<li><a href="statistics.html">Collections &amp; deliveries</a></li>
-					<li><a href="our_supporters.html">Our supporters</a></li>
-				  </ul>
-				</li>
-			  </ul>
-			</li>
-            <li><a href="#">Donate Furniture</a>
-			  <ul>
-				<li><a href="donate_furniture_how.html">How to donate</a></li>
-				<li><a href="donate_furniture_notes.html">Notes about donation</a></li>
-			  </ul>
-			</li>
-            <li><a href="#">Need Furniture</a>
-			  <ul>
-				<li><a href="need_furniture_client.html">Do you need furniture?</a></li>
-				<li><a href="need_furniture_referrer.html">Does your client need furniture?</a></li>
-			  </ul>
-			</li>
-            <li><a href="#">Ways to Help</a>
-              <ul>
-                <li><a href="volunteer.html">Volunteer at Turntable</a></li>
-                <li><a href="help_us_financially.html">Help us financially</a></li>
-              </ul>            
-			</li>
-			<li><a href="latest_news.html">Latest News</a></li>
-            <li><a href="contact.php">Contact Us</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <div id="site_content">
-      <div id="sidebar_container">
-        <div class="sidebar">
-          <h3>Urgently Needed:</h3>
-		  <p>There is always a high-demand for the following items!!!!!.</p>
-		  <p>If you have any of these that you no longer need please contact us.</p>
-          <p>Wardrobes<br>Large chests of drawers<br>Fully-working white goods</p>
-        </div>
-        <div class="sidebar">
-		  <p></p>
-		  <p>Follow us: <a href="https://www.facebook.com/TurntableFurniture" target="blank"><img src="images/facebook-logo.png" alt="Facebook"></a> <a href="https://twitter.com/TurntableExeter" target="blank"><img src="images/twitter-logo.png" alt="Twitter"></a></p>
-        </div>
-		<div class="sidebar">
-		  <p></p>
-		  <p>Turntable Furniture<br>The Warehouse<br>Swan Yard<br>Okehampton Street<br>Exeter&nbsp;&nbsp;EX4 1DS</p>
-		  <p>Tel: 01392 202032<br>Email: office@turntable.org.uk</p>
-		  <p>Mon - Thu: 9am - 3pm<br>Fri: 9am - 2pm<br>Sat + Sun: Closed</p>
-		  <iframe src="https://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Turntable+Furniture,+Swan+Yard,+Okehampton+Street,+Exeter,+EX4+1HU&amp;aq=&amp;sll=50.7182,-3.538735&amp;sspn=0.003879,0.010568&amp;ie=UTF8&amp;hq=Turntable+Furniture,+Swan+Yard,&amp;hnear=Okehampton+St,+Exeter,+Devon+EX4+1DY,+United+Kingdom&amp;filter=0&amp;update=1&amp;t=m&amp;ll=50.717874,-3.538713&amp;spn=0.008151,0.012875&amp;z=15&amp;output=embed" scrolling="no"></iframe><br><a href="https://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Turntable+Furniture,+Swan+Yard,+Okehampton+Street,+Exeter,+EX4+1HU&amp;aq=&amp;sll=50.7182,-3.538735&amp;sspn=0.003879,0.010568&amp;ie=UTF8&amp;hq=Turntable+Furniture,+Swan+Yard,&amp;hnear=Okehampton+St,+Exeter,+Devon+EX4+1DY,+United+Kingdom&amp;filter=0&amp;update=1&amp;t=m&amp;ll=50.717874,-3.538713&amp;spn=0.008151,0.012875&amp;z=15" target="_blank">View Larger Map</a>
-		</div>
-	  </div>
-      <div class="content">
-		<h2>For many a home with no furniture is stark reality</h2>
-		<img src="images/empty_room.jpg" alt="empty room" title="Empty room" align="left" height="200" width="150">
-		<p><br>Turntable Furniture aims to improve the lives of those on very low income by providing them with the essentials to set up a home, re-using donated household items, that are in <strong>good, clean condition</strong>, that would doubtless have gone to landfill.<br></p><p></p>
-		<img src="images/furnished_room_1.jpg" alt="furnished room 1" title="Furnished room 1" align="right" height="150" width="200">
-		<img src="images/furnished_room_2.jpg" alt="furnished room 2" title="Furnished room 2" align="right" height="150" width="200">
-		<p><br><br>Please help us to make houses into homes by donating household items that you no longer require.<br></p><p></p><p></p>
-		<h2>Turntable Furniture - Helping local people furnish their homes</h2>
-	  </div>
-      <div class="content">
-	    <p><span class="italic">* Images show an actual example of a dwelling in Exeter, courtesy of the client.<br>All items shown have been supplied by Turntable.</span></p>
-	  </div>
+      <div class="hero-card">
+        <h3>How we help</h3>
+        <ul>
+          <li>Collect good quality donated furniture from the local community</li>
+          <li>Support referred households on low incomes with affordable essentials</li>
+          <li>Help people leaving homelessness, supported accommodation or crisis situations</li>
+          <li>Keep reusable furniture in circulation and out of landfill</li>
+        </ul>
+      </div>
     </div>
-    <div id="scroll">
-      <a title="Scroll to the top" class="top" href="#"><img src="images/top.png" alt="top" /></a>
+  </header>
+  <main>
+    <section class="quick-grid">
+      <div class="card">
+        <h3>Donate Furniture</h3>
+        <p>Have furniture you no longer need? We may be able to collect it and pass it on to someone who needs it most.</p>
+        <p><strong>We welcome:</strong> sofas, beds, wardrobes, drawers, tables, white goods and household essentials.</p>
+        <a class="btn btn-primary" href="donate.html">Arrange a Collection</a>
+      </div>
+      <div class="card">
+        <h3>Need Furniture?</h3>
+        <p>We provide affordable furniture and household essentials to people on low incomes who are referred to us by support agencies and professionals.</p>
+        <p>Our prices are lower than many national charity shops, and every payment goes straight back into helping others.</p>
+        <a class="btn btn-primary" href="need-furniture.html">Find Out More</a>
+      </div>
+      <div class="card">
+        <h3>Clearance Services</h3>
+        <p>We also offer stress-free property clearance services for full houses or items unsuitable for client use.</p>
+        <p>All proceeds support the charity’s work in the community.</p>
+        <a class="btn btn-primary" href="clearance-services.html">Request a Quote</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Practical support with dignity</h2>
+      <p class="section-intro">Turntable Furniture is a local charity helping individuals and families establish or rebuild safe homes during difficult times. We support people facing financial hardship, homelessness, domestic abuse, rehabilitation, moving on from supported accommodation, and other life-changing circumstances.</p>
+      <div class="impact">
+        <div class="card">
+          <div class="impact-number">Local</div>
+          <p>We focus on Exeter and surrounding communities, providing direct, practical help close to home.</p>
+        </div>
+        <div class="card">
+          <div class="impact-number">Affordable</div>
+          <p>Furniture is offered at low cost so households can furnish a home without impossible expense.</p>
+        </div>
+        <div class="card">
+          <div class="impact-number">Sustainable</div>
+          <p>We give quality furniture a second life, reducing waste and keeping reusable items out of landfill.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div class="card">
+        <h2>Furniture and items we need most</h2>
+        <p>Good quality donated items help us respond quickly to local need. Clean, reusable household essentials are always appreciated.</p>
+        <ul class="checklist">
+          <li>Sofas and armchairs with fire labels</li>
+          <li>Beds and mattresses with fire labels</li>
+          <li>Wardrobes, drawers and tables</li>
+          <li>Working cookers, washing machines and fridges</li>
+          <li>Microwaves, kettles and toasters</li>
+          <li>Bedding, towels, pots, pans, plates and cutlery</li>
+        </ul>
+      </div>
+      <div class="card highlight">
+        <h2>Important for donors</h2>
+        <p>To keep everyone safe and meet regulations, upholstered furniture and mattresses must have fire labels attached. We can also accept working white goods and electrical items, subject to condition.</p>
+        <p><strong>Drop-off times:</strong><br>Monday to Friday, 9am to 1pm</p>
+        <p><strong>Warehouse:</strong><br>Swan Yard, Okehampton Street, Exeter EX4 1DS</p>
+        <p><strong>Need a collection?</strong><br>📞 01392 202032<br>📧 office@turntable.org.uk<br>Contact us to arrange a furniture collection.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">For referral partners</h2>
+      <p class="section-intro">We work with support agencies, local authorities, charities, schools, health professionals and other frontline services. Referral forms are not available as a public download and must be requested directly from us.</p>
+      <div class="split">
+        <div class="card">
+          <h3>Who can refer?</h3>
+          <p>Referral partners may include support workers, housing teams, domestic abuse services, schools, food banks, health teams and other trusted professionals supporting people in need.</p>
+          <a class="btn btn-primary" href="referral-partners.html">Referral Information</a>
+        </div>
+        <div class="card">
+          <h3>Why support agencies work with us</h3>
+          <p>We offer a practical, local and compassionate service that helps clients move into safer, more settled homes with the essentials many people take for granted. We work alongside support agencies, local authorities, community partners and other frontline professionals who trust us to provide dignified, affordable help when it is needed most.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band section">
+      <h2>Need to contact us today?</h2>
+      <p><strong>Phone:</strong> 01392 202032</p>
+      <p><strong>Email:</strong> office@turntable.org.uk</p>
+      <p><strong>Address:</strong> Swan Yard, Okehampton Street, Exeter EX4 1DS</p>
+      <p>Whether you want to donate furniture, ask about collections, request a referral form, or enquire about a clearance, please get in touch.</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="mailto:office@turntable.org.uk">Email Us</a>
+        <a class="btn btn-secondary" href="tel:01392202032" style="color:#2b2416;border-color:#2b2416;">Call Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="logo">
+          <img src="logo.jpg" alt="Turntable Furniture logo">
+          <div>Turntable <span>Furniture</span></div>
+        </div>
+        <p>Collecting donated furniture. Supporting local people. Rebuilding lives with dignity.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>01392 202032<br>office@turntable.org.uk</p>
+      </div>
+      <div>
+        <h3>Visit Us</h3>
+        <p>Swan Yard<br>Okehampton Street<br>Exeter EX4 1DS</p>
+        <p class="small">Drop-off times: Monday to Friday, 9am–1pm</p>
+      </div>
     </div>
-    <footer>
-      <p>Turntable Furniture &nbsp;&nbsp;&nbsp; Registered Charity No. 1090229<br>Copyright &copy; Turntable Furniture | <a href="http://www.css3templates.co.uk" target="_blank">Design from css3templates.co.uk</a></p>
-	</footer>
-  </div>
-  <!-- javascript at the bottom for fast page loading -->
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/jquery.easing-sooper.js"></script>
-  <script type="text/javascript" src="js/jquery.sooperfish.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('ul.sf-menu').sooperfish();
-      $('.top').click(function() {$('html, body').animate({scrollTop:0}, 'fast'); return false;});
-    });
-  </script>
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:rgba(255,255,255,0.8);">
+      Registered Charity Number: 1090229
+    </div>
+  </footer>
 </body>
 </html>
-
-
-
